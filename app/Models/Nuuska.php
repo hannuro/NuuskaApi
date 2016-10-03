@@ -11,4 +11,5 @@ class Nuuska extends Model
     protected $fillable = array('nimi', 'tyyppi');
     public $timestamps = false;
 
+
 }
