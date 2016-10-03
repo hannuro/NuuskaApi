@@ -11,6 +11,14 @@
 |
 */
 
+use App\Models\Nuuska;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/insert', function () {
+    Nuuska::create(['nimi' => 'Vittu saatana', 'tyyppi' => 'lollero']);
+    return "Nuuska has been created!";
+});
+
