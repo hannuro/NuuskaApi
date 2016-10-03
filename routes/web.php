@@ -22,3 +22,5 @@ Route::get('/insert', function () {
     return "Nuuska has been created!";
 });
 
+Route::get('/test','NuuskaController@index');
+
