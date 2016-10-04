@@ -19,3 +19,14 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/nuuska', 'NuuskaApiController@nimiLista');
 // localhost/NuuskaApi/public/index.php/api/nuuska
+
+/*
+Route::get('/', 'WelcomeController@index');
+
+Route::get('home', 'HomeController@index');
+
+Route::controllers([
+   'auth' => 'Auth\AuthController',
+   'password' => 'Auth\PasswordController',
+]);*/
+Route::resource('nuuska','NuuskaController');
