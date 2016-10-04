@@ -1,4 +1,4 @@
-@extends('layout/template')
+@extends('layouts/template')
 
 @section('content')
     <h1>NuuskaApi</h1>
@@ -19,7 +19,7 @@
                 <td>{{ $nutu->nuuska_id }}</td>
                 <td>{{ $nutu->nimi }}</td>
                 <td>{{ $nutu->tyyppi }}</td>
-                <td><a href="{{url('nuuska',$nutu->id)}}" class="btn btn-primary">Read</a></td>
+                <td><a href="{{url('api/tiedot',$nutu->nuuska_id)}}" class="btn btn-primary">Tiedot</a></td>
                 <td><a href="{{route('nuuska.edit',$nutu->id)}}" class="btn btn-warning">Update</a></td>
                 <td>
                     {!! Form::open(['method' => 'DELETE', 'route'=>['nuuska.destroy', $nutu->id]]) !!}

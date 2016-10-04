@@ -10,4 +10,6 @@ class Tiedot extends Model
     protected $primaryKey = 'tieto_id';
     protected $fillable = array('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja', 'tieto_nuuska_id');
     public $timestamps = false;
+
+    
 }

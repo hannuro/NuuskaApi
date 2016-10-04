@@ -22,4 +22,5 @@ Route::get('/nuuska', 'NuuskaApiController@nimiLista');
 
 
 Route::resource('nuuska','NuuskaController');
+Route::resource('tiedot','NuuskaController');
 
