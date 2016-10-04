@@ -1,7 +1,9 @@
 @extends('layouts/template')
 
 @section('content')
-    <h1>NuuskaApi</h1>
+    <div>
+        <img src="http://localhost/nuuskaapi/public/images/nuuskalogo.png">
+    </div>
     <a href="{{url('api/nuuska/create')}}" class="btn btn-success">Lisää Nuuska</a>
     <hr>
     <table class="table table-striped table-bordered table-hover">
@@ -22,7 +24,7 @@
                 <td><a href="{{url('api/tiedot',$nutu->nuuska_id)}}" class="btn btn-primary">Tiedot</a></td>
                 <td><a href="{{route('nuuska.edit',$nutu->id)}}" class="btn btn-warning">Update</a></td>
                 <td>
-                    {!! Form::open(['method' => 'DELETE', 'route'=>['nuuska.destroy', $nutu->id]]) !!}
+                    {!! Form::open(['method' => 'DELETE', 'route'=>['nuuska.destroy', $nutu->nuuska_id]]) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </td>
