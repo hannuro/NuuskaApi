@@ -44,11 +44,7 @@ class NuuskaController extends Controller
         return redirect('api/nuuska');
     }
 
-    public function destroy($id)
-    {
-        Book::find($id)->delete();
-        return redirect('api/nuuska');
-    }
+
 
 
 
