@@ -1,8 +1,7 @@
-@extends('layout/template')
-
+@extends('layouts/template')
 @section('content')
     <h1>NuuskaApi</h1>
-    <a href="{{url('/nuuska/create')}}" class="btn btn-success">Lisää Nuuska</a>
+    <a href="{{url('/api/nuuska/create')}}" class="btn btn-success">Lisää Nuuska</a>
     <hr>
     <table class="table table-striped table-bordered table-hover">
         <thead>

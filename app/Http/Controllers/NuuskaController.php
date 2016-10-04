@@ -28,7 +28,30 @@ class NuuskaController extends Controller
         return view('nuuska.index',compact('nuuska'));
     }
 
+    public function create()
+    {
+        return view('nuuska.create');
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+ /*   public function store()
+    {
+        $nuuska=Request::all();
+        Nuuska::create($nuuska);
+        return redirect('nuuska');
+    }
+ */
+
+    public function store(Request $request)
+    {
+        $nuuska=$request->all(); // important!!
+        Nuuska::create($nuuska);
+        return redirect('api/nuuska');
+    }
 
 
 }
