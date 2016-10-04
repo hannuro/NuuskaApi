@@ -40,5 +40,5 @@
             </div>
         </div>
     </form>
-    $@endforeach
+    @endforeach
 @stop
