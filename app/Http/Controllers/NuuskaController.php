@@ -16,9 +16,19 @@ class NuuskaController extends Controller
         $this->nuuska = Nuuska::all(array('nimi'));
 
     }
-    public function index() {
+   /* public function index() {
         return view('page', array('nuuska' => $this->nuuska));
 
     }
+   */
+    public function index()
+    {
+        //
+        $nuuska=Nuuska::all();
+        return view('nuuska.index',compact('nuuska'));
+    }
+
+
+
 
 }

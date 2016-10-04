@@ -19,3 +19,7 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/nuuska', 'NuuskaApiController@nimiLista');
 // localhost/NuuskaApi/public/index.php/api/nuuska
+
+
+Route::resource('nuuska','NuuskaController');
+
