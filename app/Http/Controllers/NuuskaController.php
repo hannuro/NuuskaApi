@@ -28,28 +28,19 @@ class NuuskaController extends Controller
         return view('nuuska.index',compact('nuuska'));
     }
 
-    public function create()
-    {
+    public function create(){
         return view('nuuska.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
- /*   public function store()
-    {
-        $nuuska=Request::all();
+    public function store(Request $request){
+        $nuuska = $request->all();
         Nuuska::create($nuuska);
-        return redirect('nuuska');
+        return redirect('api/nuuska');
     }
- */
 
-    public function store(Request $request)
-    {
-        $nuuska=$request->all(); // important!!
-        Nuuska::create($nuuska);
+
+     public function destroy($id){
+        Nuuska::find($id)->delete();
         return redirect('api/nuuska');
     }
 
@@ -58,6 +49,8 @@ class NuuskaController extends Controller
         Book::find($id)->delete();
         return redirect('api/nuuska');
     }
+
+
 
 
 }
