@@ -28,6 +28,22 @@ class NuuskaController extends Controller
         return view('nuuska.index',compact('nuuska'));
     }
 
+    public function create(){
+        return view('nuuska.create');
+    }
+
+    public function store(Request $request){
+        $nuuska = $request->all();
+        Nuuska::create($nuuska);
+        return redirect('api/nuuska');
+    }
+
+
+     public function destroy($id){
+        Nuuska::find($id)->delete();
+        return redirect('api/nuuska');
+    }
+
 
 
 
