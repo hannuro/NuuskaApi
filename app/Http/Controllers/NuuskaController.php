@@ -35,8 +35,13 @@ class NuuskaController extends Controller
     }
 
     public function store(Request $request){
-        $nuuska = $request->all();
+       // $request->all();
+        $nuuska = $request->only('nimi', 'tyyppi');
         Nuuska::create($nuuska);
+        $tieto_nuuska_id = Nuuska::find($nuuska)->get('nuuska_id');
+        $tiedot = $request->only('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja');
+        array_push($tiedot, $tieto_nuuska_id[0]);
+        Tiedot::create($tiedot);
         return redirect('api/nuuska');
     }
 
