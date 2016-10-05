@@ -12,7 +12,7 @@
             <th>Id</th>
             <th>Nimi</th>
             <th>Tyyppi</th>
-            <th colspan="3">Actions</th>
+            <th colspan="3">Toiminnot</th>
         </tr>
         </thead>
         <tbody>
@@ -22,10 +22,10 @@
                 <td>{{ $nutu->nimi }}</td>
                 <td>{{ $nutu->tyyppi }}</td>
                 <td><a href="{{url('api/tiedot',$nutu->nuuska_id)}}" class="btn btn-primary">Tiedot</a></td>
-                <td><a href="{{route('nuuska.edit',$nutu->id)}}" class="btn btn-warning">Update</a></td>
+                <td><a href="{{route('nuuska.edit',$nutu->id)}}" class="btn btn-warning">Päivitä</a></td>
                 <td>
                     {!! Form::open(['method' => 'DELETE', 'route'=>['nuuska.destroy', $nutu->nuuska_id]]) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::submit('Poista', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </td>
             </tr>
