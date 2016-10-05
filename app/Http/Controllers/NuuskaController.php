@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Nuuska;
 use Illuminate\Http\Request;
 use App\Models\Tiedot;
+use Illuminate\Contracts\Validation\Validator;
 
 use App\Http\Requests;
 
@@ -35,9 +36,21 @@ class NuuskaController extends Controller
     }
 
     public function store(Request $request){
+
         $nuuska = $request->all();
+
+        $this->validate($request, [
+            'nimi' => 'required|max:50',
+            'tyyppi' => 'required|max:20',
+        ]);
+
         Nuuska::create($nuuska);
-        return redirect('api/nuuska');
+
+
+        //return redirect('api/nuuska');
+
+       //return view('nuuska.create');
+
     }
 
 
