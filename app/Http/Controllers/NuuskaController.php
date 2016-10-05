@@ -38,9 +38,17 @@ class NuuskaController extends Controller
        // $request->all();
         $nuuska = $request->only('nimi', 'tyyppi');
         Nuuska::create($nuuska);
-        $tieto_nuuska_id = Nuuska::find($nuuska)->get('nuuska_id');
+        $tieto_nuuska_id = Nuuska::where('nimi', '=', $request->only('nimi'))->get();
+
+        $nuuska_id = "";
+
+        foreach ($tieto_nuuska_id as $item) {//?????????
+            $nuuska_id = $item->nuuska_id;
+        }
+
         $tiedot = $request->only('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja');
-        array_push($tiedot, $tieto_nuuska_id[0]);
+        $tiedot['tieto_nuuska_id'] = $nuuska_id;
+
         Tiedot::create($tiedot);
         return redirect('api/nuuska');
     }
