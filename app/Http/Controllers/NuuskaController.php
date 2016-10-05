@@ -67,7 +67,8 @@ class NuuskaController extends Controller
     public function edit($id)
     {
         $nuuska=Nuuska::find($id);
-        return view('nuuska.edit',compact('nuuska'));
+        $tiedot=Tiedot::find($id);
+        return view('nuuska.edit',compact('nuuska','tiedot'));
     }
 
     /**
@@ -79,9 +80,13 @@ class NuuskaController extends Controller
     public function update($id, Request $request)
     {
         //
-        $nuuskaUpdate= $request->all();
+        $nuuskaUpdate = $request->only('nimi', 'tyyppi');
         $nuuska=Nuuska::find($id);
         $nuuska->update($nuuskaUpdate);
+        $tieto = Tiedot::where('tieto_nuuska_id', '=', $id)->first();
+        $tietoUpdate = $request->only('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja');
+        $tieto->update($tietoUpdate);
+
         return redirect('api/nuuska');
     }
 
