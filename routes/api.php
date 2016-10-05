@@ -17,8 +17,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/nuuska', 'NuuskaApiController@nimiLista');
-// localhost/NuuskaApi/public/index.php/api/nuuska
+Route::get('/json/nuuska/nimi', 'NuuskaApiController@haeNimellä');
+// localhost/NuuskaApi/public/index.php/api/json/nuuska/nimi?nimi=
+
+Route::get('/json/nuuska/id', 'NuuskaApiController@haeId');
+// localhost/NuuskaApi/public/index.php/api/json/nuuska/id?id=
 
 
 Route::resource('nuuska','NuuskaController');

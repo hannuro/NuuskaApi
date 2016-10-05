@@ -9,11 +9,19 @@ use Response;
 
 class NuuskaApiController extends Controller
 {
-    public function nimiLista(Request $request) {
-        $haku_nimi = $request->input('nimi');
-
-        $values = Nuuska::all();
+    public function haeNimellä(Request $request) {
+        $haku = $request->input('nimi');
+        $values = Nuuska::where('nimi', '=', $haku)->first();
+       // http://localhost/NuuskaApi/public/index.php/api/json/nuuska?id=3
 
         return Response::json($values);
         }
+
+    public function haeId(Request $request) {
+        $haku = $request->input('id');
+        $values = Nuuska::where('nuuska_id', '=', $haku)->first();
+        // http://localhost/NuuskaApi/public/index.php/api/json/nuuska?id=3
+
+        return Response::json($values);
+    }
 }
