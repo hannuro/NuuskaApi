@@ -51,6 +51,26 @@ class NuuskaController extends Controller
         $tiedot=Tiedot::where('tieto_nuuska_id', '=', $id)->get();
         return view('nuuska.show',compact('tiedot'));
     }
+    public function edit($id)
+    {
+        $nuuska=Nuuska::find($id);
+        return view('nuuska.edit',compact('nuuska'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id, Request $request)
+    {
+        //
+        $nuuskaUpdate= $request->all();
+        $nuuska=Nuuska::find($id);
+        $nuuska->update($nuuskaUpdate);
+        return redirect('api/nuuska');
+    }
 
 
 
