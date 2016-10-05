@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Nuuska;
 use Illuminate\Http\Request;
 use App\Models\Tiedot;
-use Illuminate\Contracts\Validation\Validator;
 
 use App\Http\Requests;
 
@@ -36,21 +35,14 @@ class NuuskaController extends Controller
     }
 
     public function store(Request $request){
-
-        $nuuska = $request->all();
-
-        $this->validate($request, [
-            'nimi' => 'required|max:50',
-            'tyyppi' => 'required|max:20',
-        ]);
-
+       // $request->all();
+        $nuuska = $request->only('nimi', 'tyyppi');
         Nuuska::create($nuuska);
-
-
-        //return redirect('api/nuuska');
-
-       //return view('nuuska.create');
-
+        $tieto_nuuska_id = Nuuska::find($nuuska)->get('nuuska_id');
+        $tiedot = $request->only('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja');
+        array_push($tiedot, $tieto_nuuska_id[0]);
+        Tiedot::create($tiedot);
+        return redirect('api/nuuska');
     }
 
 

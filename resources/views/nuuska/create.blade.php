@@ -14,6 +14,18 @@
         {!! Form::text('tyyppi',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
+        {!! Form::label('Nikotiinipitoisuus', 'Nikotiinipitoisuus:') !!}
+        {!! Form::text('nikotiinipitoisuus',null,['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('Pakkauskoko', 'Pakkauskoko:') !!}
+        {!! Form::text('pakkauskoko',null,['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('Valmistaja', 'Valmistaja:') !!}
+        {!! Form::text('valmistaja',null,['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
         {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
     </div>
     {!! Form::close() !!}
