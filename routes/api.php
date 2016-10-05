@@ -23,6 +23,12 @@ Route::get('/json/nuuska/nimi', 'NuuskaApiController@haeNimellä');
 Route::get('/json/nuuska/id', 'NuuskaApiController@haeId');
 // localhost/NuuskaApi/public/index.php/api/json/nuuska/id?id=
 
+Route::get('/json/nuuska/valmistaja', 'NuuskaApiController@haeValmistaja');
+// localhost/NuuskaApi/public/index.php/api/json/nuuska/valmistaja?valmistaja=
+
+Route::post('/json/nuuska/lisää', 'NuuskaApiController@lisääNuuska');
+// localhost/NuuskaApi/public/index.php/api/json/nuuska/nimi?nimi=
+
 
 Route::resource('nuuska','NuuskaController');
 Route::resource('tiedot','NuuskaController');
