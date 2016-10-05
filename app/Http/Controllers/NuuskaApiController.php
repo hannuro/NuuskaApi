@@ -35,13 +35,11 @@ class NuuskaApiController extends Controller
         return Response::json($values);
     }
 
-    public function lisääNuuska(Request $request) {
-        $haku = $request->input('tyyppi');
-        $haku2 = $request->input('nimi');
+    public function lisaaNuuska(Request $request) {
+        $haku = $request->input('nimi');
+        $haku2 = $request->input('tyyppi');
         // http://localhost/NuuskaApi/public/index.php/api/json/lisää?nimi=xxx&tyyppi=yyy
         $muuttuja = array($haku,$haku2);
         Nuuska::create($muuttuja);
-
-        return "jee";
     }
 }
