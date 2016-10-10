@@ -1,5 +1,6 @@
 @extends('layouts/template')
 @section('content')
+    @include('includes.message-block')
     <h1>Lisää nuuska</h1>
 
 

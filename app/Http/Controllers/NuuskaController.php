@@ -39,8 +39,22 @@ class NuuskaController extends Controller
 
     public function store(Request $request){
        // $request->all();
+        $this->validate($request, [
+            'nimi' => 'required|max:50',
+            'tyyppi' => 'required|max:50',
+            'nikotiinipitoisuus' => 'required|integer|max:50',
+            'pakkauskoko' => 'required',
+            'valmistaja' => 'required',
+            'nuuskakaira' => 'integer',
+            'nuuskakenraali' => 'integer',
+            'muu' => 'integer',
+        ]);
         $nuuska = $request->only('nimi', 'tyyppi');
-        Nuuska::create($nuuska);
+        $message = "Tapahtui virhe, tarkista tiedot!";
+        if (Nuuska::create($nuuska)){
+            $message = 'Nuuska luotu!';
+
+        }
         $tieto_nuuska_id = Nuuska::where('nimi', '=', $request->only('nimi'))->get();
         $hinta_nuuska_id = Nuuska::where('nimi', '=', $request->only('nimi'))->get();
 
@@ -62,7 +76,7 @@ class NuuskaController extends Controller
 
         Tiedot::create($tiedot);
         Hinta::create($hinnat);
-        return redirect('api/nuuska');
+        return redirect('api/nuuska')->with(['message' => $message]);
     }
 
 
@@ -80,6 +94,7 @@ class NuuskaController extends Controller
     }
     public function edit($id)
     {
+
         $nuuska=Nuuska::find($id);
         $tiedot=Tiedot::find($id);
         $hinnat=Hinta::find($id);
@@ -94,6 +109,16 @@ class NuuskaController extends Controller
      */
     public function update($id, Request $request)
     {
+        $this->validate($request, [
+            'nimi' => 'required|max:50',
+            'tyyppi' => 'required|max:50',
+            'nikotiinipitoisuus' => 'required|integer|max:50',
+            'pakkauskoko' => 'required',
+            'valmistaja' => 'required',
+            'nuuskakaira' => 'integer',
+            'nuuskakenraali' => 'integer',
+            'muu' => 'integer',
+        ]);
         //
         $nuuskaUpdate = $request->only('nimi', 'tyyppi');
         $nuuska=Nuuska::find($id);

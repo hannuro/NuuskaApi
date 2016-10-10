@@ -1,5 +1,6 @@
 @extends('layouts/template')
 @section('content')
+    @include('includes.message-block')
     <h1>Päivitä nuuskan tiedot</h1>
     {!! Form::model($nuuska,['method' => 'PATCH','route'=>['nuuska.update',$nuuska->nuuska_id]]) !!}
     <div class="form-group">

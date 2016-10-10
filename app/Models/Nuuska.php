@@ -11,5 +11,14 @@ class Nuuska extends Model
     protected $fillable = array('nimi', 'tyyppi');
     public $timestamps = false;
 
+    public function tiedot()
+    {
+        return $this->hasOne('App\Tiedot', 'foreign_key');
+    }
+
+    public function hinta()
+    {
+        return $this->hasOne('App\Hinta', 'foreign_key');
+    }
 
 }

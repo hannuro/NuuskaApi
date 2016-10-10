@@ -9,13 +9,13 @@
         <div class="form-group">
             <label for="nimi" class="col-sm-2 control-label">Nimi</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nimi" placeholder={{$nuuska->nimi}} readonly>
+                <input type="text" class="form-control" id="nimi" placeholder='{{$nuuska->nimi}}' readonly>
                 </div>
         </div>
         <div class="form-group">
                 <label for="tyyppi" class="col-sm-2 control-label">Tyyppi (Pussi / Lös)</label>
             <div class="col-sm-10">
-                    <input type="text" class="form-control" id="tyyppi" placeholder={{$nuuska->tyyppi}} readonly>
+                    <input type="text" class="form-control" id="tyyppi" placeholder={{"$nuuska->tyyppi"}} readonly>
                 </div>
         </div>
         <div class="form-group">
@@ -39,7 +39,7 @@
         <div class="form-group">
             <label for="valmistaja" class="col-sm-2 control-label">Valmistaja</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="valmistaja" placeholder={{$tieto->valmistaja}} readonly>
+                <input type="text" class="form-control" id="valmistaja" placeholder='{{$tieto->valmistaja}}' readonly>
             </div>
         </div>
         <div class="form-group">
@@ -52,19 +52,19 @@
         <div class="form-group">
             <label for="nuuskakaira" class="col-sm-2 control-label">Nuuskakaira</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nuuskakaira" placeholder={{$hinta->nuuskakaira}} readonly>
+                <input type="text" class="form-control" id="nuuskakaira" placeholder={{$hinta->nuuskakaira}}€ readonly>
             </div>
         </div>
         <div class="form-group">
             <label for="nuuskakenraali" class="col-sm-2 control-label">Nuuskakenraali</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nuuskakeisari" placeholder={{$hinta->nuuskakenraali}} readonly>
+                <input type="text" class="form-control" id="nuuskakeisari" placeholder={{$hinta->nuuskakenraali}}€ readonly>
             </div>
         </div>
         <div class="form-group">
             <label for="muu" class="col-sm-2 control-label">Muu</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="muu" placeholder={{$hinta->muu}} readonly>
+                <input type="text" class="form-control" id="muu" placeholder={{$hinta->muu}}€ readonly>
             </div>
         </div>
 
