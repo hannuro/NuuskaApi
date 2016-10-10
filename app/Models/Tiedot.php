@@ -11,5 +11,9 @@ class Tiedot extends Model
     protected $fillable = array('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja', 'tieto_nuuska_id');
     public $timestamps = false;
 
+    public function nuuska(){
+        return $this->belongsTo('App\Nuuska');
+    }
+
     
 }

@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hinta extends Model
 {
-    protected $table = 'hinnat';
-    protected $primaryKey = 'hinnat_id';
+    protected $table = 'hinta';
+    protected $primaryKey = 'hinta_id';
     protected $fillable = array('hinta_nuuska_id', 'nuuskakaira', 'nuuskakenraali', 'muu');
     public $timestamps = false;
+
+    public function nuuska(){
+        return $this->belongsTo('App\Nuuska');
+    }
 }

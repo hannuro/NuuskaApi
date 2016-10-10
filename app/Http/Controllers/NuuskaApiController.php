@@ -30,7 +30,7 @@ class NuuskaApiController extends Controller
         $haku = $request->input('value');
         $values = Tiedot::where('valmistaja', '=', $haku)->get();
        // $values2 = Nuuska::find($values)
-        // localhost/NuuskaApi/public/index.php/api/json/nuuska/valmistaja?value=
+        //// localhost/NuuskaApi/public/index.php/api/json/nuuska/valmistaja?value=
 
         return Response::json($values);
     }
