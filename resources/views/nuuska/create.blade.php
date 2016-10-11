@@ -3,8 +3,6 @@
     @include('includes.message-block')
     <h1>Lisää nuuska</h1>
 
-
-
     {!! Form::open(['url' => 'api/nuuska']) !!}
     <div class="form-group">
         {!! Form::label('Nimi', 'Nimi:') !!}
@@ -51,6 +49,5 @@
             <a href="{{ url('/api/nuuska')}}" class="btn btn-primary">Back</a>
         </div>
     </div>
-
 
 @stop

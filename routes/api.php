@@ -18,18 +18,19 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/json/nuuska/nimi', 'NuuskaApiController@haeNimellä');
-// localhost/NuuskaApi/public/index.php/api/json/nuuska/nimi?nimi=
+// localhost/NuuskaApi/public/api/json/nuuska/nimi?value=
 
 Route::get('/json/nuuska/id', 'NuuskaApiController@haeId');
-// localhost/NuuskaApi/public/index.php/api/json/nuuska/id?id=
+// localhost/NuuskaApi/public/api/json/nuuska/id?value=
 
 Route::get('/json/nuuska/valmistaja', 'NuuskaApiController@haeValmistaja');
-// localhost/NuuskaApi/public/index.php/api/json/nuuska/valmistaja?valmistaja=
+// localhost/NuuskaApi/public/api/json/nuuska/valmistaja?value=
 
 Route::post('/json/nuuska/lisää', 'NuuskaApiController@lisääNuuska');
-// localhost/NuuskaApi/public/index.php/api/json/nuuska/nimi?nimi=
-
+// localhost/NuuskaApi/public/api/json/nuuska/lisää?nimi=
 
 Route::resource('nuuska','NuuskaController');
 Route::resource('tiedot','NuuskaController');
+
+Route::get('index.php', 'NuuskaController@ohjaa');
 
