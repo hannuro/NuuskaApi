@@ -76,7 +76,11 @@ class NuuskaController extends Controller
 
         Tiedot::create($tiedot);
         Hinta::create($hinnat);
-        return redirect('api/nuuska')->with(['message' => $message]);
+        return redirect('api/nuuska/create')->with(['message' => $message]);
+    }
+
+    public function ohjaa(){
+        return redirect('api/nuuska');
     }
 
 
@@ -124,10 +128,25 @@ class NuuskaController extends Controller
         $nuuska=Nuuska::find($id);
         $nuuska->update($nuuskaUpdate);
         $tieto = Tiedot::where('tieto_nuuska_id', '=', $id)->first();
+
+        $hintaUpdate = $request->only('nuuskakaira', 'nuuskakenraali', 'muu');
+
+        if($request->only('nuuskakaira') == null){
+            $hintaUpdate['nuuskakaira'] = '0';
+        }
+
+        if($request->only('nuuskakenraali') == null){
+            $hintaUpdate['nuuskakenraali'] = '0';
+        }
+
+        if($request->only('muu') == null){
+            $hintaUpdate['muu'] = '0';
+        }
+
         $tietoUpdate = $request->only('nikotiinipitoisuus', 'pakkauskoko', 'valmistaja');
         $tieto->update($tietoUpdate);
         $hinta = Hinta::where('hinta_nuuska_id', '=', $id)->first();
-        $hintaUpdate = $request->only('nuuskakaira', 'nuuskakenraali', 'muu');
+
         $hinta->update($hintaUpdate);
 
         return redirect('api/nuuska');

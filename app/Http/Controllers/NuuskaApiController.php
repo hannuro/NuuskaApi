@@ -29,13 +29,15 @@ class NuuskaApiController extends Controller
     public function haeValmistaja(Request $request) {
         $haku = $request->input('value');
         $values = Tiedot::where('valmistaja', '=', $haku)->get();
-       // $values2 = Nuuska::find($values)
-        //// localhost/NuuskaApi/public/index.php/api/json/nuuska/valmistaja?value=
 
-        return Response::json($values);
+        for($i = 0; $i < count($values);$i ++){
+            $output[$i] = Nuuska::find($values[$i]['tieto_nuuska_id']);
+        }
+
+        return Response::json($output);
     }
 
-    public function lisaaNuuska(Request $request) {
+    public function lisääNuuska(Request $request) {
         $haku = $request->input('nimi');
         $haku2 = $request->input('tyyppi');
         // http://localhost/NuuskaApi/public/index.php/api/json/lisää?nimi=xxx&tyyppi=yyy
