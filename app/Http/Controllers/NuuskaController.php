@@ -95,10 +95,10 @@ class NuuskaController extends Controller
     public function edit($id)
     {
 
-        $nuuska=Nuuska::find($id);
-        $tiedot=Tiedot::find($id);
-        $hinnat=Hinta::find($id);
-        return view('nuuska.edit',compact('nuuska','tiedot','hinnat'));
+        $tiedot=Tiedot::where('tieto_nuuska_id', '=', $id)->get();
+        $nuuskat=Nuuska::where('nuuska_id', '=', $id)->get();
+        $hinnat=Hinta::where('hinta_nuuska_id', '=', $id)->get();
+        return view('nuuska.edit',compact('nuuskat','tiedot','hinnat'));
     }
 
     /**

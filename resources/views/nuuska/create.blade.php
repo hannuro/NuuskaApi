@@ -11,7 +11,7 @@
         {!! Form::text('nimi',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('Tyyppi', 'Tyyppi (Pussi / Lös):') !!}
+        {!! Form::label('Tyyppi', 'Tyyppi (Pussi / Tykki):') !!}
         {!! Form::text('tyyppi',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">

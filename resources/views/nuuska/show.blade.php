@@ -13,7 +13,7 @@
                 </div>
         </div>
         <div class="form-group">
-                <label for="tyyppi" class="col-sm-2 control-label">Tyyppi (Pussi / Lös)</label>
+                <label for="tyyppi" class="col-sm-2 control-label">Tyyppi (Pussi / Tykki)</label>
             <div class="col-sm-10">
                     <input type="text" class="form-control" id="tyyppi" placeholder={{"$nuuska->tyyppi"}} readonly>
                 </div>

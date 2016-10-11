@@ -21,7 +21,7 @@ Route::get('nuuska/{id}', function($id){
     echo $nuuska;
 });
 
-Route::get('/insert', function () {
+Route::post('/insert', function () {
     Nuuska::create(['nimi' => 'Vittu saatana', 'tyyppi' => 'lollero']);
     return "Nuuska has been created!";
 });

@@ -13,12 +13,12 @@ class Nuuska extends Model
 
     public function tiedot()
     {
-        return $this->hasOne('App\Tiedot', 'foreign_key');
+        return $this->hasOne('App\Tiedot', 'tieto_nuuska_id');
     }
 
     public function hinta()
     {
-        return $this->hasOne('App\Hinta', 'foreign_key');
+        return $this->hasOne('App\Hinta', 'hinta_nuuska_id');
     }
 
 }
